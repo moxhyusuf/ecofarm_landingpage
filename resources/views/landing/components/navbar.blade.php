@@ -24,12 +24,12 @@
     }
 </style>
 
-<div class="header_navbar">
+<div class="header_navbar sticky">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg m-0 p-0">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('landing.beranda') }}">
                         <img src="{{ asset('images/logo_desa_cakrawala.png') }}" height="110" alt="Logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,21 +40,11 @@
 
                     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                         <ul id="nav" class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="page-scroll" href="{{ route('beranda') }}">Beranda</a>
+                            <li class="nav-item {{ request()->routeIs('landing.beranda') ? 'active' : '' }}">
+                                <a class="page-scroll" href="{{ route('landing.beranda') }}">Beranda</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class=" dropdown-toggle" href="#" id="navbarDropdownProgram" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Program
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownProgram">
-                                    <li><a class="dropdown-item page-scroll" href="#team">Smart Eco Farm</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#faq">UMKM Academy</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#contact">Desa Melek Teknologi</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#contact">Rumah Kreatif Pemuda</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#contact">Gerakan Desa Sehat</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#contact">Eco Living</a></li>
-                                </ul>
+                            <li class="nav-item {{ request()->routeIs('landing.program') ? 'active' : '' }}">
+                                <a class="page-scroll" href="{{ route('landing.program') }}">Program</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -62,20 +52,19 @@
                                     Informasi
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarInfo">
-                                    <li><a class="dropdown-item page-scroll" href="#team">Paket Wisata</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#team">Dukungan & Kerjasama</a></li>
+                                    <li><a class="dropdown-item page-scroll" href="{{ route('landing.wisata') }}">Paket Wisata</a></li>
                                     <li><a class="dropdown-item page-scroll" href="#team">Dashboard IoT</a></li>
-                                    <li><a class="dropdown-item page-scroll" href="#team">Proposal</a></li>
+                                    <li><a class="dropdown-item page-scroll" href="{{ route('landing.proposal') }}">Proposal</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="page-scroll" href="#about">Dukungan & Kerjasama</a>
+                            <li class="nav-item {{ request()->routeIs('landing.dukungan-kerjasama') ? 'active' : '' }}">
+                                <a class="page-scroll" href="{{ route('landing.dukungan-kerjasama') }}">Dukungan & Kerjasama</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('landing.kontak') ? 'active' : '' }}">
+                                <a class="page-scroll" href="{{ route('landing.kontak') }}">Kontak</a>
                             </li>
                             <li class="nav-item">
-                                <a class="page-scroll" href="#about">Kontak</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="page-scroll" href="#about">Login</a>
+                                <a class="page-scroll" href="{{ route('auth.login') }}">Login</a>
                             </li>
                         </ul>
                     </div> <!-- navbar collapse -->

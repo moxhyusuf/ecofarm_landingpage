@@ -16,8 +16,8 @@
                         <h2 class="header_title wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.2s">Desa Cakrawala [Smart Village]</h2>
                         <p>Desa Cakrawala adalah inisiatif Yayasan Seribu Senyum untuk menciptakan desa masa depan melalui pemberdayaan berbasis teknologi, peningkatan kapasitas masyarakat, ekonomi kreatif, kesehatan, dan lingkungan. Program ini dibangun agar menjadi prototype desa modern yang dapat direplikasi di seluruh Indonesia.</p>
                         <ul>
-                            <li><a class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1s" href="#">Jadwalkan Kunjungan <i class="lni lni-whatsapp"></i></a></li>
-                            <li><a class="main-btn main-btn-2 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.4s" href="#">Pelajari Program</a></li>
+                            <li><a class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1s" target="_blank"href="https://wa.me/+6282143316913">Jadwalkan Kunjungan <i class="lni lni-whatsapp"></i></a></li>
+                            <li><a class="main-btn main-btn-2 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.4s" href="{{ route('landing.program') }}">Pelajari Program</a></li>
                         </ul>
                     </div> <!-- header hero content -->
                 </div>
@@ -1665,7 +1665,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="cta-section animate-partner">
                         <h4 class="cta-title">Mulai Kolaborasi Bersama Kami</h4>
@@ -1679,7 +1679,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -1915,7 +1915,7 @@
                         </span>
                     </div>
 
-                    <a href="#kontak" class="cta-button">
+                    <a href="{{route('landing.kontak')}}" class="cta-button">
                         Bergabung Sekarang <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -3274,7 +3274,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="target-box" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
                         <div class="target-icon">
@@ -3284,7 +3284,7 @@
                         <p>Desa Cakrawala menjadi model desa modern yang mandiri, produktif, dan berkelanjutan, dengan sistem dan metodologi yang dapat direplikasi secara nasional untuk mendorong transformasi desa-desa lain di Indonesia.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -3702,7 +3702,7 @@
                         </ul>
 
                         <div class="cta-container">
-                            <a href="#jadwalkan" class="cta-button">
+                            <a href="https://wa.me/+6282143316913" target="_blank" class="cta-button">
                                 Jadwalkan Kunjungan Sekarang
                             </a>
                         </div>
@@ -3715,3 +3715,18 @@
 
 
 @endsection
+
+@push('js')
+    <script>
+        $(window).on('scroll', function(event) {
+            var scroll = $(window).scrollTop();
+            if (scroll < 20) {
+                $(".header_navbar").removeClass("sticky");
+                // $(".header_navbar img").attr("src", ASSET_URL + "images/logo.svg");
+            } else {
+                $(".header_navbar").addClass("sticky");
+                // $(".header_navbar img").attr("src", ASSET_URL + "images/logo-2.svg");
+            }
+        });
+    </script>
+@endpush
